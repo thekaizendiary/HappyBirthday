@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Happy Birthday Gataansha! 🎂</title>
+        <style>
+            :root {
+                --glass-bg: rgba(255, 255, 255, 0.15);
+                --glass-border: rgba(255, 255, 255, 0.18);
+                --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                --gold: #ffd700;
+                --pink: #ffb6c1;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Georgia", serif;
+                overflow-x: hidden;
+                background: linear-gradient(
+                    135deg,
+                    #667eea 0%,
+                    #764ba2 25%,
+                    #f093fb 50%,
+                    #f5576c 75%,
+                    #ffa500 100%
+                );
+                background-size: 400% 400%;
+                animation: gradientShift 15s ease infinite;
+                min-height: 100vh;
+            }
+
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            .particles {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            .particle {
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                background: radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.9),
+                    transparent
+                );
+                border-radius: 50%;
+                animation: float 8s infinite ease-in-out;
+                opacity: 0.7;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0) translateX(0);
+                }
+                50% {
+                    transform: translateY(-30px) translateX(20px);
+                }
+            }
+
+            .balloon {
+                position: absolute;
+                width: 50px;
+                height: 65px;
+                animation: floatBalloon 6s infinite ease-in-out;
+            }
+
+            @keyframes floatBalloon {
+                0%,
+                100% {
+                    transform: translateY(0) translateX(0) rotate(-5deg);
+                }
+                50% {
+                    transform: translateY(-40px) translateX(15px) rotate(5deg);
+                }
+            }
+
+            .container {
+                position: relative;
+                z-index: 2;
+                padding: 40px 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .hero-section {
+                text-align: center;
+                margin-bottom: 60px;
+                animation: fadeInUp 1s ease-out;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .main-heading {
+                font-size: 3rem;
+                font-weight: bold;
+                color: #fff;
+                text-shadow:
+                    0 0 20px rgba(255, 215, 0, 0.8),
+                    0 0 40px rgba(255, 215, 0, 0.5);
+                margin-bottom: 40px;
+                animation: pulse 2s infinite;
+            }
+
+            @keyframes pulse {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+
+            .glass-card {
+                background: var(--glass-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 20px;
+                border: 1px solid var(--glass-border);
+                box-shadow: var(--glass-shadow);
+                padding: 30px;
+                margin: 30px auto;
+                max-width: 600px;
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+            }
+
+            .glass-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+            }
+
+            .photo-frame {
+                background: var(--glass-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 20px;
+                border: 2px solid rgba(255, 215, 0, 0.4);
+                box-shadow:
+                    var(--glass-shadow),
+                    0 0 30px rgba(255, 215, 0, 0.3);
+                padding: 15px;
+                max-width: 400px;
+                margin: 0 auto 40px;
+                animation: fadeInScale 1.5s ease-out;
+                position: relative;
+            }
+
+            @keyframes fadeInScale {
+                from {
+                    opacity: 0;
+                    transform: scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            .photo-frame img {
+                width: 100%;
+                height: auto;
+                border-radius: 15px;
+                display: block;
+            }
+
+            .message-card {
+                animation: fadeInUp 2s ease-out;
+                animation-delay: 0.5s;
+                animation-fill-mode: both;
+            }
+
+            .message-card p {
+                color: #fff;
+                font-size: 1.3rem;
+                line-height: 1.8;
+                text-align: center;
+                text-shadow:
+                    0 0 20px rgba(255, 215, 0, 0.8),
+                    0 0 40px rgba(255, 215, 0, 0.5);
+            }
+
+            .btn-conffeti {
+                display: inline-block;
+                padding: 10px 10px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #fff;
+                background: linear-gradient(135deg, var(--gold), #ff8c00);
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+                transition: all 0.3s ease;
+                margin-top: 10px;
+                animation: glowPulse 2s infinite;
+            }
+
+            @keyframes glowPulse {
+                0%,
+                100% {
+                    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+                }
+                50% {
+                    box-shadow: 0 10px 50px rgba(255, 215, 0, 0.8);
+                }
+            }
+
+            .btn-cut-cake:hover {
+                transform: scale(1.1);
+                box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
+            }
+
+            .cake-section {
+                text-align: center;
+                margin-top: 60px;
+                opacity: 0;
+                transform: translateY(50px);
+                transition:
+                    opacity 0.8s ease,
+                    transform 0.8s ease;
+                pointer-events: none;
+            }
+
+            .cake-section.active {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: all;
+            }
+
+            .cake-container {
+                position: relative;
+                display: inline-block;
+                margin: 30px auto;
+            }
+
+            #cakeSvg {
+                filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+                cursor: pointer;
+            }
+
+            .slice {
+                transition:
+                    opacity 0.5s ease,
+                    transform 0.5s ease;
+                cursor: pointer;
+            }
+
+            .slice:hover {
+                filter: brightness(1.1);
+            }
+
+            .slice.cut {
+                animation: sliceCut 0.8s ease-out forwards;
+            }
+
+            @keyframes sliceCut {
+                0% {
+                    opacity: 1;
+                    transform: translate(0, 0) rotate(0deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(100px, -100px) rotate(45deg);
+                }
+            }
+
+            .cutting-line {
+                stroke: var(--gold);
+                stroke-width: 3;
+                stroke-dasharray: 5, 5;
+                opacity: 0;
+                transition: opacity 0.2s;
+                pointer-events: none;
+            }
+
+            .candle-flame {
+                animation: flicker 0.5s infinite alternate;
+            }
+
+            @keyframes flicker {
+                from {
+                    transform: scale(1) translateY(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: scale(1.1) translateY(-2px);
+                    opacity: 0.8;
+                }
+            }
+
+            .instructions {
+                color: #fff;
+                font-size: 1.2rem;
+                margin: 20px 0;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .slice-counter {
+                color: var(--gold);
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+                margin-top: 20px;
+            }
+
+            .celebration-message {
+                opacity: 0;
+                transform: scale(0);
+                transition: all 0.5s ease;
+            }
+
+            .celebration-message.show {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .celebration-message h2 {
+                color: var(--gold);
+                font-size: 2.5rem;
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+                margin-top: 30px;
+            }
+
+            .confetti {
+                position: fixed;
+                pointer-events: none;
+                z-index: 1000;
+            }
+
+            .confetti-circle {
+                border-radius: 50%;
+            }
+
+            .confetti-square {
+                border-radius: 2px;
+            }
+
+            .confetti-triangle {
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 10px solid;
+            }
+
+            @keyframes confettiFall {
+                0% {
+                    transform: translateY(0) translateX(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(var(--fall-distance))
+                        translateX(var(--drift)) rotate(var(--rotation));
+                    opacity: 0;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .main-heading {
+                    font-size: 2rem;
+                }
+                .message-card p {
+                    font-size: 1.1rem;
+                }
+                .btn-cut-cake {
+                    font-size: 1.2rem;
+                    padding: 15px 30px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Floating Particles -->
+        <div class="particles" id="particles"></div>
+
+        <!-- Floating Balloons -->
+        <svg class="balloon" style="left: 10%; top: 20%" viewBox="0 0 50 65">
+            <ellipse
+                cx="25"
+                cy="30"
+                rx="20"
+                ry="25"
+                fill="#ff6b9d"
+                opacity="0.8"
+            />
+            <line
+                x1="25"
+                y1="55"
+                x2="25"
+                y2="65"
+                stroke="#fff"
+                stroke-width="1"
+            />
+        </svg>
+        <svg class="balloon" style="left: 85%; top: 30%" viewBox="0 0 50 65">
+            <ellipse
+                cx="25"
+                cy="30"
+                rx="20"
+                ry="25"
+                fill="#4ecdc4"
+                opacity="0.8"
+            />
+            <line
+                x1="25"
+                y1="55"
+                x2="25"
+                y2="65"
+                stroke="#fff"
+                stroke-width="1"
+            />
+        </svg>
+        <svg class="balloon" style="left: 15%; top: 60%" viewBox="0 0 50 65">
+            <ellipse
+                cx="25"
+                cy="30"
+                rx="20"
+                ry="25"
+                fill="#ffe66d"
+                opacity="0.8"
+            />
+            <line
+                x1="25"
+                y1="55"
+                x2="25"
+                y2="65"
+                stroke="#fff"
+                stroke-width="1"
+            />
+        </svg>
+        <svg class="balloon" style="left: 88%; top: 70%" viewBox="0 0 50 65">
+            <ellipse
+                cx="25"
+                cy="30"
+                rx="20"
+                ry="25"
+                fill="#a8e6cf"
+                opacity="0.8"
+            />
+            <line
+                x1="25"
+                y1="55"
+                x2="25"
+                y2="65"
+                stroke="#fff"
+                stroke-width="1"
+            />
+        </svg>
+
+        <div class="balloons-container">
+            <div class="container">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <h1 class="main-heading">
+                        🎉 Happy Birthday Gataansha! 🎉
+                    </h1>
+
+                    <!-- Photo Frame -->
+                    <div class="photo-frame">
+                        <img
+                            src="https://scontent.cdninstagram.com/v/t51.82787-15/573599866_18547196554009668_4800258524153671030_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=104&ig_cache_key=Mzc2MDAwMDIzOTg4MjAyOTUyMg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkxOC5zZHIuQzMifQ%3D%3D&_nc_ohc=EWYwwvgnn-0Q7kNvwG2f-WY&_nc_oc=Adl7DNzmQHZl-Kuuwl5OG5NHRMG6QHqOCyWCak2oucoHSMcoY-Oj46YGLc1zt-vhdqs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=nEmovTdcFlXSwdCsqiF48A&oh=00_AfgQXA9zVkfW6Qc7IATYKyETgVU4oyYxftMihfmse3BHMg&oe=691537C6"
+                            alt="Birthday Celebration"
+                        />
+                    </div>
+
+                    <!-- Birthday Message -->
+                    <div class="glass-card message-card">
+                        <p>
+                            From the Stars, to the soul, and beyond you guided
+                            us with warmness and insighful wisdom, Gataansha!
+                            May this special year bring you all the happiness
+                            you deserve. Here's to another year of wonderful
+                            memories! - Happy Birthday, Gataansha!
+                        </p>
+
+                        <audio
+                            autoplay
+                            loop
+                            id="birthday-audio"
+                            src="happy-birthday-music-box(chosic.com).mp3"
+                        ></audio>
+
+                        <button
+                            class="btn-conffeti"
+                            onclick="createMassConfetti()"
+                        >
+                            🎂 YAY! 🎂
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+            function createParticles() {
+                const particlesContainer = document.getElementById("particles");
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement("div");
+                    particle.className = "particle";
+                    particle.style.left = Math.random() * 100 + "%";
+                    particle.style.top = Math.random() * 100 + "%";
+                    particle.style.animationDelay = Math.random() * 8 + "s";
+                    particle.style.animationDuration =
+                        Math.random() * 5 + 5 + "s";
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            function createConfetti(x, y, count = 40) {
+                const colors = [
+                    "#FFD700",
+                    "#FF69B4",
+                    "#4169E1",
+                    "#9370DB",
+                    "#FF4500",
+                    "#FFFF00",
+                    "#00CED1",
+                    "#FF1493",
+                ];
+                const shapes = ["circle", "square", "triangle"];
+
+                for (let i = 0; i < count; i++) {
+                    const confetti = document.createElement("div");
+                    const shape =
+                        shapes[Math.floor(Math.random() * shapes.length)];
+                    const color =
+                        colors[Math.floor(Math.random() * colors.length)];
+                    const size = Math.random() * 10 + 5; // 5-15px
+
+                    confetti.className = "confetti confetti-" + shape;
+                    confetti.style.width = size + "px";
+                    confetti.style.height = size + "px";
+
+                    if (shape === "triangle") {
+                        confetti.style.borderBottomColor = color;
+                    } else {
+                        confetti.style.backgroundColor = color;
+                    }
+
+                    // Position at click location
+                    confetti.style.left = x + "px";
+                    confetti.style.top = y + "px";
+
+                    // Physics-based movement
+                    const angle = Math.random() * Math.PI * 2;
+                    const velocity = Math.random() * 150 + 100; // 100-250px
+                    const drift = Math.cos(angle) * velocity;
+                    const fallDistance =
+                        Math.sin(angle) * velocity +
+                        (Math.random() * 300 + 400); // Fall down with gravity
+                    const rotation = Math.random() * 720 - 360; // -360 to 360 degrees
+
+                    confetti.style.setProperty("--drift", drift + "px");
+                    confetti.style.setProperty(
+                        "--fall-distance",
+                        fallDistance + "px",
+                    );
+                    confetti.style.setProperty("--rotation", rotation + "deg");
+
+                    const duration = Math.random() * 1 + 2; // 2-3 seconds
+                    confetti.style.animation = `confettiFall ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
+
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), duration * 1000 + 100);
+                }
+            }
+
+            // Mass confetti celebration (150+ particles)
+            function createMassConfetti() {
+                // Create multiple bursts of confetti
+                const burstCount = 5;
+                const particlesPerBurst = 30;
+
+                for (let burst = 0; burst < burstCount; burst++) {
+                    setTimeout(() => {
+                        for (let i = 0; i < particlesPerBurst; i++) {
+                            createConfetti(
+                                Math.random() * window.innerWidth,
+                                (Math.random() * window.innerHeight) / 3,
+                                1,
+                            );
+                        }
+                    }, burst * 200);
+                }
+            }
+
+            // Initialize
+            createParticles();
+            setupCakeCutting();
+        </script>
+    </body>
+</html>
